@@ -6,7 +6,8 @@
   "author": "WilsonCaetano-Qyon <wilsonjr_cartano@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "start-dev": "ts-node-dev src/server.ts"
+    "start-dev": "ts-node-dev src/server.ts",
+    "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "express": "^4.17.1",
