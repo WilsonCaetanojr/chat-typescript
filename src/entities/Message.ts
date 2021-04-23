@@ -2,24 +2,30 @@ import {
   Entity,
   Column,
   PrimaryColumn,
-  UpdateDateColumn,
   CreateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { User } from "./User";
 
-@Entity("settings")
-class Setting {
+@Entity("messages")
+class Message {
   @PrimaryColumn()
   id: string;
 
   @Column()
-  username: string;
+  admin_id: string;
+
+  @JoinColumn({ name: "user_id" })
+  @ManyToOne(() => User)
+  user: User;
 
   @Column()
-  chat: boolean;
+  user_id: string;
 
-  @UpdateDateColumn()
-  updated_at: Date;
+  @Column()
+  text: boolean;
 
   @CreateDateColumn()
   created_at: Date;
@@ -31,4 +37,4 @@ class Setting {
   }
 }
 
-export { Setting };
+export { Message };
